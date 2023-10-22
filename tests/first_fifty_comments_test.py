@@ -3,7 +3,7 @@ import httpx
 
 from fastapi.testclient import TestClient
 from main import app
-from src.services.endpoint1_services import  HACKERNEWS_API
+from src.services.first_fifty_comments import  HACKERNEWS_API
 
 client = TestClient(app)
 

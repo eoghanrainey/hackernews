@@ -1,9 +1,10 @@
 from fastapi import APIRouter, HTTPException
-from src.services.endpoint1_services import HackerNewsService as hackernews
+from src.services.first_fifty_comments import HackerNewsService as hackernews
+
 
 router = APIRouter()
 
-@router.get("/top_stories_comments/")
+@router.get("/first_fifty_comments/")
 async def read_top_stories_comments():
     try:
         return await hackernews.get_top_stories_comments()
