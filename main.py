@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from src.routes import endpoint1
 
 app = FastAPI()
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(endpoint1.router)
