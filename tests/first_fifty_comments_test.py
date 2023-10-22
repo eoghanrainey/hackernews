@@ -26,7 +26,7 @@ def test_read_top_stories_comments():
         'dead': None,  # Add the dead field
     }))
 
-    response = client.get("/top_stories_comments/")
+    response = client.get("/first_fifty_comments/")
     assert response.status_code == 200
     assert response.json() == [{
         'id': 100,
@@ -43,5 +43,5 @@ def test_read_top_stories_comments_api_unavailable():
     # Mock the /topstories.json endpoint to return an error status code
     respx.get(f'{HACKERNEWS_API}/topstories.json').mock(return_value=httpx.Response(500))
 
-    response = client.get("/top_stories_comments/")
+    response = client.get("/first_fifty_comments/")
     assert response.status_code == 500
